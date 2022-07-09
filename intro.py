@@ -11,4 +11,9 @@ print('We can skip a line on a print') #\n creates a new line in Python
 
 fam = ['dad',1.85,'mother', 1.76,'son',1.60] # fam list has strings and floats
 
-print(fam)
+print(f'\n{fam}')
+
+# you slice a list with a [first element - included : second element - excluded]
+# Python index starts at zero
+
+print(fam[0:4])
