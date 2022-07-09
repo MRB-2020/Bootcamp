@@ -9,4 +9,4 @@ Lerning step. One by one
 
 First Pythin scrip is up and syncronized!
 
-Hurray
+Hurray! learning to code in Python!!
