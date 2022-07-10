@@ -16,4 +16,4 @@ print(f'\n{fam}')
 # you slice a list with a [first element - included : second element - excluded]
 # Python index starts at zero
 
-print(fam[0:4])
+print(f'\n{fam[0:4]}')
