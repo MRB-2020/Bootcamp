@@ -2,7 +2,7 @@
 #just going trhough some basic 
 
 print("hello world!!\nLet's lern a new skill\n")
-print('We can skip a line on a print') #\n creates a new line in Python
+print('We can skip a line\n on a print') #\n creates a new line in Python
 
 
 ###List
@@ -71,4 +71,76 @@ fam.insert(5, 1.79) # insert 1.79 before son
 
 print(fam)
 
+# list.remove(x) Remove the first tem form the list whose value is equial to x. It raises a ValueError if there is no such item
+
+fam.remove('daughter')
+
+print(fam)
+
+# list.pop([i]) Remove the item at the given position in the list, and return it. 
+# If no index is specified, a.pop() removes and returns the last item in the list.
+
+fam.pop(4) # removes 1.79
+
+print(fam)
+
+# list.clear() Remove all items from the list. Equivalent from del list[:]
+
+fam.clear() 
+
+print(fam)
+
+
+# list.copy() Return a shallow copy of the list.
+
+fam = fam1.copy() #copy method only copy the values of the list not the object it self.
+
+print(fam)
+
+fam[3] = 1.78 # change in the copy does not affect the original list as declaring fam = fam1 would
+
+print(fam == fam1) #false
+
+fam2 = fam
+
+fam2[3] = 1.76 #change of a value in one list changes the other list aswell
+
+print(fam == fam2) #True
+
+# list.index() returns the position at the first occurrence of the specified value.
+
+print(fam.index('son'))
+
+
+# list.count(x) Return the number of times x appears in the list.
+
+print(fam.count('mother')) # 1
+
+fam1.extend(['daughter',1.65])
+print(fam1.count('daughter')) # 2
+
+print(fam.count(1.50)) # 0
+
+
+# list.sort() sort the list (if the list has the same type of values) ascending by default. 
+# You can also make a function to decide the sorting criteria(s).
+
+# print(fam.sort()) does not work it has floats and strs
+
+heights = list((fam[1], fam[3], fam[5]))
+relations = list((fam[0], fam[2], fam[4]))
+
+print(heights)
+print(relations)
+
+heights.sort()
+relations.sort(reverse=True)
+
+print(heights)
+print(relations)
+
+# list. reverse() Reverse the elements of the list in place.
+
+fam.reverse()
+print(fam)
 
