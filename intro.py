@@ -4,8 +4,11 @@
 print("hello world!!\nLet's lern a new skill\n")
 print('We can skip a line\n on a print') #\n creates a new line in Python
 
+##########
+###List###
+##########
 
-###List
+
 # List is the basic way to declare (create) variables in Python
 # Single name for a collection of items in a single variable; can containe any type of values and containe different types in the same list
 
@@ -38,7 +41,10 @@ print(fam[0], fam[2], fam[4]) #you can print more than one object using print() 
 
 print(f'{fam[0]} \n{fam[2]} \n{fam[4]}')
 
-## List methods
+
+##################
+## List methods ##
+##################
 
 # Methods in Python are build in function that are type specific
 # the usage is listname.method()
@@ -77,7 +83,7 @@ fam.remove('daughter')
 
 print(fam)
 
-# list.pop([i]) Remove the item at the given position in the list, and return it. 
+# list.pop(i) Remove the item at the given position in the list, and return it. 
 # If no index is specified, a.pop() removes and returns the last item in the list.
 
 fam.pop(4) # removes 1.79
@@ -144,3 +150,177 @@ print(relations)
 fam.reverse()
 print(fam)
 
+
+### List Comprehention ###
+##########################
+
+# List comprehension offers a shorter syntax when you want to create a new list based on the specific values of an existing list.
+
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]  # want to creat a nee list with only fruit with letter "a" 
+newlist = []  #empity list
+
+for x in fruits:
+  if "a" in x:
+    newlist.append(x)
+
+print(newlist)
+
+
+# list comprehension allows you to accomplish that without the for loop
+
+newlist =[]
+
+print(newlist)
+newlist = [x for x in fruits if "a" in x]
+
+print(newlist)
+
+
+###Tuples###
+
+# Tuples are used to store multiple items in a single variable.
+# A tuple is a collection which is ordered and unchangeable. Tuples are written with round brackets.
+
+thistuple = ('apple', 'banana', 'cherry')
+
+print(thistuple)
+
+# Tuple items are ordered (can not change its original order), unchangeable, and allow duplicate values.
+# you can convert a tuple to a list and them add, delete or update tuple
+
+
+################
+##Dictionaries##
+################
+
+
+# Dictionaries are used to store data values in key:value pairs.
+# A dictionary is a collection which is ordered, changeable and do not allow duplicates.
+# Dictionaries are written with curly brackets, and have keys and values:
+    
+    
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+print(thisdict)   
+
+
+# Dictionary items are presented in key:value pairs, and can be referred to by using the key name.
+
+x = thisdict["model"]
+
+# You can add a item to the dictionary by entering a new key
+
+thisdict['color'] = 'red' # create a new paired entry 'color':'red'
+
+print(thisdict)
+
+# Make changes by assigning new value for existing keys
+
+thisdict['year'] = 2020
+
+print(thisdict)
+
+# Delete a key entry or the whole dictionary with "del"
+
+del thisdict['color'] # deletes the key entry "color" and the value "red"
+
+del thisdict #delete the distionary completely
+
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+
+
+# You can loop through a dictionary using a for loop. The return values are the keys
+
+for x in thisdict:
+  print(x)              #print the keys
+  print(thisdict[x])    #print the values
+
+
+# Make a copy of a dictionary with "disct()" function
+
+mydict = dict(thisdict)
+
+
+# Nested dictionaries. A dictionary can contain dictionaries, this is called nested dictionaries.
+
+myfamily = {
+  "child1" : {
+    "name" : "Emil",
+    "year" : 2004
+  },
+  "child2" : {
+    "name" : "Tobias",
+    "year" : 2007
+  },
+  "child3" : {
+    "name" : "Linus",
+    "year" : 2011
+  }
+}
+
+print(myfamily)
+
+myfamily['child1'] #all value inside dictionary child1
+
+myfamily['child1']['year'] #the value of key "year" in dictionary child1
+
+
+
+########################
+## Dictionary methods ##
+########################
+
+# dict.pop()
+# dict.clear()
+# dict.copy()
+# Are methods that work on list also and do the same function
+
+
+# dict.fromkeys(key, value)  Returns a dictionary with the specified keys and value. It is a way to create or partialy copy a dictionary
+# All keys get the same set of values
+
+x = ('key1', 'key2', 'key3')
+y = ('entrance', 'garage', 'kitchen door')
+newdict = dict.fromkeys(x,y)
+
+print(newdict) # all keys have "('entrance', 'garage', 'kitchen door')" as value. If you want each key to get a unique value you need declare each value for a key
+
+# dict.get(key) Returns the vlaie of a Key item
+
+print(thisdict.get('model')) # print the value of key: model of thisdict dictionary
+
+# dict.items() Returns a view object as a tuple of all key:item pairs in a dictionary
+
+thisdict.items()
+
+# dict.keys() returns a view object with all the keys in a dictionery
+
+thisdict.keys()
+
+# dict.popitem() Removes the last inserted key-value pair
+
+thisdict['color'] = 'red'
+
+thisdict.popitem()
+
+print(thisdict)
+
+# dict.setdefault() method returns the value of the item with the specified key. If the key does not exist, insert the key, with the value
+
+thisdict.setdefault("model", "Bronco") # Does change thisdict since the key model already exist
+thisdict.setdefault("color", "white") # Creates a new key-value pair = color-white
+
+# dict.update({key:value}) Updates the dictionary with the specified key-value pairs
+
+thisdict.update({'year':2020}) #changes the valeu of key year to 2020
+ 
+# dict.values() Returns a view object. The view object contains the values of the dictionary, as a list.
+
+thisdict.values()
