@@ -63,6 +63,7 @@ df1 = properties_long[['Location','Price']].groupby('Location').agg(['first', 'l
 
 df = properties_long[['Location','Price']].groupby('Location').agg(lambda x: (x.iloc[-1] / x.iloc[0]) *100)
 
+df1.sort_values('last', ascending = False)
 df.sort_values('Price', ascending = False)
 
 
@@ -73,7 +74,7 @@ len(london_boroughs)
 
 df.sort_values('Price', ascending = False)
 
-df[df.index.isin(london_boroughs)].sort_values('Price', ascending = False)
+
 
 def create_price_ratio(loc):
     '''Function calculate the ratio between 1998 and 2018 average house prices of lacations in the LondonHousePrices database.'''
